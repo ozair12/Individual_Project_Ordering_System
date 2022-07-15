@@ -15,7 +15,7 @@
                <Font name="Arial Nova Bold" size="18.0" />
             </font>
          </Label>
-         <ListView fx:id="DrinksList" layoutX="20.0" layoutY="166.0"  prefHeight="184.0" prefWidth="180.0" />
+         <ListView fx:id="DrinksList" layoutX="20.0" layoutY="166.0" prefHeight="184.0" prefWidth="180.0" />
          <Label layoutX="80.0" layoutY="140.0" opacity="0.48" prefHeight="25.0" prefWidth="59.0" text="Drinks" textFill="RED" underline="true">
             <font>
                <Font name="Arial Nova Bold" size="17.0" />
@@ -55,9 +55,9 @@
    </AnchorPane>
    <AnchorPane layoutX="477.0" layoutY="157.0" prefHeight="426.0" prefWidth="288.0" style="-fx-background-color: #FFD199;">
       <children>
-         <ListView fx:id="OrderList" layoutX="33.0" layoutY="213.0" prefHeight="200.0" prefWidth="200.0" />
-         <Button fx:id="view" layoutX="200.0" layoutY="132.0" mnemonicParsing="false" text="Button" />
-         <Label layoutX="78.0" layoutY="46.0" opacity="0.47" prefHeight="25.0" prefWidth="131.0" text="Order List" textFill="RED" underline="true">
+         <ListView fx:id="OrderList" layoutX="20.0" layoutY="43.0" prefHeight="213.0" prefWidth="213.0" />
+         <Button fx:id="view" layoutX="26.0" layoutY="280.0" mnemonicParsing="false" text="Button" />
+         <Label layoutX="78.0" layoutY="7.0" opacity="0.47" prefHeight="25.0" prefWidth="92.0" text="CheckOut" textFill="RED" underline="true">
             <font>
                <Font name="Arial Nova Bold" size="18.0" />
             </font>

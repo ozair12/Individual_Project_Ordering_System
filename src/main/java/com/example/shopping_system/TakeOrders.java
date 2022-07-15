@@ -3,6 +3,7 @@ package com.example.shopping_system;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -20,31 +21,17 @@ import java.util.ResourceBundle;
 
 public class TakeOrders implements Initializable {
 
-   private String mylist;
+    private String mylist;
     @FXML
-    private ListView<String> BurgerList;
-
-    @FXML
-    private ListView<String> MealDeals;
-
-    @FXML
-    private ListView<String> PizzaList;
-
-    @FXML
-    private ListView<String> DrinksList;
-
-@FXML
-private ListView<String> OrderList;
-
-
+    private ListView<String> MealDeals, BurgerList, PizzaList,
+            DrinksList, OrderList;
 
 
     @FXML
     private Button display;
 
 
-
-    public void validateLogin(String product_name, ListView<String> listView) {
+    public void ProductRecords(String product_name, ListView<String> listView) {
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connection = connectNow.getConnection();
 
@@ -59,7 +46,7 @@ private ListView<String> OrderList;
 
                 String productName = queryResult.getString("Product_Name");
                 String Price = queryResult.getString("Product_Price");
-                String output = productName  + " " + ":" + " " + "£" + Price ;
+                String output = productName + " " + ":" + " " + "£" + Price;
                 listView.getItems().add(output);
             }
         } catch (Exception e) {
@@ -71,23 +58,48 @@ private ListView<String> OrderList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-validateLogin("burgers", BurgerList);
-        validateLogin("drinks", DrinksList);
-        validateLogin("meal deals", MealDeals);
-        validateLogin("pizza", PizzaList);
+        ProductRecords("burgers", BurgerList);
+        ProductRecords("drinks", DrinksList);
+        ProductRecords("meal deals", MealDeals);
+        ProductRecords("pizza", PizzaList);
 
 
-        DrinksList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        PizzaList.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                mylist = DrinksList.getSelectionModel().getSelectedItem();
+            public void handle(MouseEvent event) {
 
-
+                mylist = PizzaList.getSelectionModel().getSelectedItem();
+                System.out.println("clicked on " + OrderList.getSelectionModel().getSelectedItem());
                 OrderList.getItems().add(mylist);
-
             }
         });
 
+
+        BurgerList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+
+                mylist = BurgerList.getSelectionModel().getSelectedItem();
+                OrderList.getItems().add(mylist);
+            }
+        });
+        DrinksList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+
+                mylist = DrinksList.getSelectionModel().getSelectedItem();
+                OrderList.getItems().add(mylist);
+            }
+        });
+        MealDeals.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+
+                mylist = MealDeals.getSelectionModel().getSelectedItem();
+                OrderList.getItems().add(mylist);
+            }
+        });
     }
+
 
 }

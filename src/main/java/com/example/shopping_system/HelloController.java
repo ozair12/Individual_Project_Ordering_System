@@ -25,8 +25,8 @@ public class HelloController {
     @FXML
     private Label ErrorMessage;
 
-@FXML
-private ImageView logo;
+    @FXML
+    private ImageView logo;
     @FXML
     private TextField UsernameTextfield;
 
@@ -103,11 +103,12 @@ private ImageView logo;
 
     }
 
-    public void TakeOrders(ActionEvent event) throws Exception  {
+    public void TakeOrders(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("TakeOrders.fxml"));
         Stage stage = (Stage) Orderbtn.getScene().getWindow();
         stage.setScene(new Scene(root, 778, 593));
     }
+
     public void CheckOrders(ActionEvent event) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("CheckOrders.fxml"));
@@ -115,12 +116,13 @@ private ImageView logo;
         stage.setScene(new Scene(root, 500, 500));
     }
 
-    public void CheckSales(ActionEvent event) throws Exception  {
+    public void CheckSales(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("CheckSales.fxml"));
         Stage stage = (Stage) CheckSalesbtn.getScene().getWindow();
         stage.setScene(new Scene(root, 500, 500));
     }
-    public void UpdateProducts(ActionEvent event) throws Exception  {
+
+    public void UpdateProducts(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("UpdateProducts.fxml"));
         Stage stage = (Stage) UpdateProductsbtn.getScene().getWindow();
         stage.setScene(new Scene(root, 500, 500));
