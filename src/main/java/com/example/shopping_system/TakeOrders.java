@@ -19,7 +19,7 @@ public class TakeOrders implements Initializable {
     private ListView<String> BurgerList;
 
     @FXML
-    private ListView<String> BurgerMealdeals;
+    private ListView<String> MealDeals;
 
     @FXML
     private ListView<String> PizzaList;
@@ -41,6 +41,7 @@ public class TakeOrders implements Initializable {
     public void validateLogin(String product_name, ListView<String> listView) {
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connection = connectNow.getConnection();
+
 
         String verifyLogin = "select * from shopping_project.product_catalogue where Product_Type =  '" + product_name + "'";
         try {
@@ -66,7 +67,7 @@ public class TakeOrders implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 validateLogin("burgers", BurgerList);
         validateLogin("drinks", DrinksList);
-        validateLogin("meal deals", BurgerMealdeals);
+        validateLogin("meal deals", MealDeals);
         validateLogin("pizza", PizzaList);
 
 
