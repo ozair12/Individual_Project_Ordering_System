@@ -1,22 +1,16 @@
 package com.example.shopping_system;
 
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
-
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class TakeOrders implements Initializable {
@@ -99,7 +93,25 @@ public class TakeOrders implements Initializable {
                 OrderList.getItems().add(mylist);
             }
         });
+
+        OrderList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+OrderList.getItems().remove(OrderList.getSelectionModel().getSelectedIndex());
+
+            }
+        });
     }
+
+
+public void calculate(ActionEvent event){
+
+        for(int i = 0; i < OrderList.getItems().toArray().length; i++){
+         System.out.println( OrderList.getItems().get(i)) ;
+
+        }
+
+}
 
 
 }

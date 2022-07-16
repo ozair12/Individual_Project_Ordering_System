@@ -19,7 +19,7 @@ import java.sql.*;
 import java.util.Map;
 import java.sql.Statement;
 
-public class HelloController {
+public class LoginController {
 
     String SceneName = "";
     @FXML
@@ -28,29 +28,11 @@ public class HelloController {
     @FXML
     private ImageView logo;
     @FXML
-    private TextField UsernameTextfield;
+    private TextField UsernameTextfield, PasswordTextfield;
 
     @FXML
-    private TextField PasswordTextfield;
-
-
-    @FXML
-    private Button loginbtn;
-
-    @FXML
-    private Button cancelbtn;
-
-    @FXML
-    private Button Orderbtn;
-
-    @FXML
-    private Button CheckSalesbtn;
-
-    @FXML
-    private Button CheckOrdersbtn;
-
-    @FXML
-    private Button UpdateProductsbtn;
+    private Button UpdateProductsbtn, loginbtn,
+            Orderbtn, CheckSalesbtn, CheckOrdersbtn, cancelbtn;
 
     public void LoginbtnOnAction(ActionEvent actionEvent) {
 
