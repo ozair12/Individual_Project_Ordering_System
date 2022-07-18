@@ -11,4 +11,6 @@ requires java.sql;
 
     opens com.example.shopping_system to javafx.fxml;
     exports com.example.shopping_system;
+    exports com.example.shopping_system.TakeOrder_classes;
+    opens com.example.shopping_system.TakeOrder_classes to javafx.fxml;
 }

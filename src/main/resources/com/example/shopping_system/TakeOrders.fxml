@@ -21,6 +21,12 @@
                <Font name="Arial Nova Bold" size="17.0" />
             </font>
          </Label>
+         <TableView fx:id="meal_deals" editable="true" layoutX="-18.0" layoutY="224.0" prefHeight="226.0" prefWidth="229.0">
+            <columns>
+               <TableColumn fx:id="mealdeals_order" prefWidth="154.66667938232422" text="Order" />
+               <TableColumn fx:id="mealdeals_price" prefWidth="72.0" text="Price" />
+            </columns>
+         </TableView>
       </children></AnchorPane>
     <ImageView fx:id="logo" fitHeight="175.0" fitWidth="464.0" layoutY="2.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
         <viewport>
@@ -51,12 +57,18 @@
                <Font name="Arial Nova Bold" size="18.0" />
             </font>
          </Label>
+         <TableView fx:id="drinks_table" editable="true" layoutX="61.0" layoutY="168.0" prefHeight="226.0" prefWidth="229.0">
+            <columns>
+               <TableColumn fx:id="drinks_order" prefWidth="154.66667938232422" text="Order" />
+               <TableColumn fx:id="drinks_price" prefWidth="72.0" text="Price" />
+            </columns>
+         </TableView>
       </children>
    </AnchorPane>
    <AnchorPane layoutX="477.0" layoutY="6.0" prefHeight="577.0" prefWidth="289.0" style="-fx-background-color: #FFD199;">
       <children>
          <ListView fx:id="OrderList" layoutX="38.0" layoutY="32.0" prefHeight="213.0" prefWidth="213.0" />
-         <Button fx:id="calculate" layoutX="14.0" layoutY="519.0" mnemonicParsing="false" onAction="#calculate" prefHeight="25.0" prefWidth="69.0" text="Total" />
+         <Button fx:id="calculate" layoutX="14.0" layoutY="519.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Total" />
          <Label layoutX="89.0" layoutY="1.0" opacity="0.47" prefHeight="25.0" prefWidth="92.0" text="CheckOut" textFill="RED" underline="true">
             <font>
                <Font name="Arial Nova Bold" size="17.0" />
@@ -75,6 +87,18 @@
          <ChoiceBox layoutX="100.0" layoutY="284.0" prefHeight="25.0" prefWidth="105.0" />
          <Label layoutX="103.0" layoutY="258.0" prefHeight="25.0" prefWidth="99.0" text="Payment Method" />
          <TextField layoutX="97.0" layoutY="326.0" prefHeight="18.0" prefWidth="111.0" promptText="Enter Cash" />
+         <TableView fx:id="pizza_table" editable="true" layoutX="14.0" layoutY="260.0" prefHeight="226.0" prefWidth="229.0">
+           <columns>
+             <TableColumn fx:id="pizza_order" prefWidth="154.66667938232422" text="Order" />
+             <TableColumn fx:id="pizza_price" prefWidth="72.0" text="Price" />
+           </columns>
+         </TableView>
+         <TableView fx:id="burger_table" editable="true" prefHeight="226.0" prefWidth="229.0">
+            <columns>
+               <TableColumn fx:id="burger_order" prefWidth="154.66667938232422" text="Order" />
+               <TableColumn fx:id="burger_price" prefWidth="72.0" text="Price" />
+            </columns>
+         </TableView>
       </children>
    </AnchorPane>
 
