@@ -88,7 +88,7 @@ public class LoginController {
     public void TakeOrders(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("TakeOrders.fxml"));
         Stage stage = (Stage) Orderbtn.getScene().getWindow();
-        stage.setScene(new Scene(root, 778, 593));
+        stage.setScene(new Scene(root, 730, 850));
     }
 
     public void CheckOrders(ActionEvent event) throws Exception {
