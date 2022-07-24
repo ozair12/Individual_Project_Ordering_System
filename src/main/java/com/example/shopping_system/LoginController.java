@@ -89,6 +89,7 @@ public class LoginController {
         Parent root = FXMLLoader.load(getClass().getResource("TakeOrders.fxml"));
         Stage stage = (Stage) Orderbtn.getScene().getWindow();
         stage.setScene(new Scene(root, 650, 850));
+        stage.setMaximized(true);
     }
 
     public void CheckOrders(ActionEvent event) throws Exception {

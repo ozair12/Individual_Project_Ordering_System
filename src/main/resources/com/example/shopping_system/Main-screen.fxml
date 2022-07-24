@@ -50,14 +50,14 @@
             <Rectangle2D />
         </viewport>
         <image>
-            <Image url="@../../../../Shopping_Project_Images/logo.png" />
+            <Image url="@../../../Shopping_Project_Images/logo.png" />
 
 
         </image>
     </ImageView>
    <ImageView fitHeight="139.0" fitWidth="146.0" layoutX="250.0" layoutY="4.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../../../../Shopping_Project_Images/red-star.png" />
+         <Image url="@../../../Shopping_Project_Images/red-star.png" />
       </image>
    </ImageView>
 

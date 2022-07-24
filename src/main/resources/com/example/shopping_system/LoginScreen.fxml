@@ -13,7 +13,7 @@
          <Rectangle2D />
       </viewport>
       <image>
-         <Image url="@../../../../Shopping_Project_Images/logo.png" />
+         <Image url="@../../../Shopping_Project_Images/logo.png" />
 
       
             </image>
@@ -55,7 +55,7 @@
       </children></AnchorPane>
    <ImageView fitHeight="147.0" fitWidth="200.0" layoutX="216.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../../../../Shopping_Project_Images/red-star.png" />
+         <Image url="@../../../Shopping_Project_Images/red-star.png" />
       </image></ImageView>
 
 
