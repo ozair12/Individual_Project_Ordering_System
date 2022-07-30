@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="481.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopping_system.LoginController">
+<Pane prefHeight="507.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopping_system.Checksales">
     <AnchorPane layoutX="1.0" prefHeight="450.0" prefWidth="166.0" style="-fx-background-color: #FFD190;" />
     <ImageView fx:id="logo" fitHeight="167.0" fitWidth="452.0" layoutY="2.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
         <viewport>
@@ -21,6 +22,44 @@
         <image>
             <Image url="@../../../Shopping_Project_Images/red-star.png" />
         </image></ImageView>
+   <TabPane layoutX="157.0" layoutY="159.0" prefHeight="340.0" prefWidth="545.0" tabClosingPolicy="UNAVAILABLE">
+     <tabs>
+       <Tab text="Total Weekly Sales">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <TableView fx:id="weekly_sales" layoutX="8.0" layoutY="10.0" prefHeight="297.0" prefWidth="533.0">
+                       <columns>
+                         <TableColumn fx:id="date_of_sale" prefWidth="75.0" text="Date of sale" />
+                         <TableColumn fx:id="total_sale" prefWidth="85.33334350585938" text="Total sale" />
+                           <TableColumn fx:id="total_items_bought" prefWidth="122.66668701171875" text="Total items bought" />
+                           <TableColumn fx:id="No_drinks" prefWidth="80.33328247070312" text="No.Drinks" />
+                           <TableColumn fx:id="No_burgers" prefWidth="79.99996948242188" text="No.Burgers" />
+                           <TableColumn fx:id="No_pizza" prefWidth="84.33331298828125" style="-fx-font-size: 11" text="No.Pizza" />
+                       </columns>
+                     </TableView>
+                  </children></AnchorPane>
+         </content>
+       </Tab>
+       <Tab text="Monthly Sales">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <TableView fx:id="Monthly_Sales" layoutX="6.0" prefHeight="308.0" prefWidth="538.0">
+                       <columns>
+                           <TableColumn fx:id="Date_of_sale" prefWidth="75.0" text="Date of sale" />
+                           <TableColumn fx:id="Total_sale" prefWidth="85.33334350585938" text="Total sale" />
+                           <TableColumn fx:id="Total_items_bought" prefWidth="122.66668701171875" text="Total items bought" />
+                           <TableColumn fx:id="No_Drinks" prefWidth="80.33328247070312" text="No.Drinks" />
+                           <TableColumn fx:id="No_Burgers" prefWidth="79.99996948242188" text="No.Burgers" />
+                           <TableColumn fx:id="No_Pizza" prefWidth="84.33331298828125" style="-fx-font-size: 11" text="No.Pizza" />
+                       </columns>
+                     </TableView>
+                  </children></AnchorPane>
+         </content>
+       </Tab>
+     </tabs>
+   </TabPane>
 
 
 </Pane>

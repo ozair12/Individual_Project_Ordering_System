@@ -23,9 +23,7 @@ import java.util.Date;
 public class TakeOrders implements Initializable {
 
 
-    private Float total = 0.0f;
-    private Float change = 0.0f;
-    private Float cash = 0.0f;
+    private Float total = 0.0f, change = 0.0f, cash = 0.0f;
 
     private String chosen_payment = " ";
 
@@ -35,51 +33,49 @@ public class TakeOrders implements Initializable {
     private TextField cashtxt, changetxt, taxtxt, subtotaltxt, totaltxt;
 
     @FXML
-    private ChoiceBox<String> payment_method;
+    private TableView<pizza> pizza_table;
+    @FXML
+    private TableColumn<pizza, String> pizza_order;
+    @FXML
+    private TableColumn<pizza, Float> pizza_price;
+
+    //Table view for burger
     @FXML
     private TableView<burger> burger_table;
-
-    @FXML
-    private TableView<drinks> drinks_table;
-    @FXML
-    private TableView<com.example.shopping_system.TakeOrder_classes.meal_deals> meal_deals;
-
-    @FXML
-    private TableView<Products> checkout;
-    @FXML
-    private TableView<pizza> pizza_table;
-
-    @FXML
-    private TableColumn<Products, String> checkout_order;
-    @FXML
-    private TableColumn<Products, Float> checkout_price;
-
-
-    // burger table columns
     @FXML
     private TableColumn<burger, String> burger_order;
     @FXML
     private TableColumn<burger, Float> burger_price;
 
 
-    // pizza table columns
     @FXML
-    private TableColumn<pizza, String> pizza_order;
-    @FXML
-    private TableColumn<pizza, Float> pizza_price;
-
-    @FXML
-    private TableColumn<meal_deals, String> mealdeals_order;
-
-    @FXML
-    private TableColumn<meal_deals, Float> mealdeals_price;
-
+    private TableView<drinks> drinks_table;
 
     @FXML
     private TableColumn<drinks, String> drinks_order;
 
     @FXML
     private TableColumn<drinks, Float> drinks_price;
+
+
+    @FXML
+    private TableView<meal_deals> meal_deals;
+    @FXML
+    private TableColumn<meal_deals, String> mealdeals_order;
+
+    @FXML
+    private TableColumn<meal_deals, Float> mealdeals_price;
+
+    @FXML
+    private TableView<Products> checkout;
+    @FXML
+    private TableColumn<Products, String> checkout_order;
+    @FXML
+    private TableColumn<Products, Float> checkout_price;
+
+
+    @FXML
+    private ChoiceBox<String> payment_method;
 
 
     // lists for retrieved records to be added to
@@ -93,14 +89,11 @@ public class TakeOrders implements Initializable {
     private final DataBaseConnection connectNow = new DataBaseConnection();
     private final Connection connection = connectNow.getConnection();
 
-    public int itemcount = 0;
-    public int pizza_count = 0;
-    public int burger_count = 0;
-    public int drinks_count  = 0;
-    public  ArrayList<String> pizzacount  = new ArrayList<>();
-    public  ArrayList<String> burgercount  = new ArrayList<>();
-    public  ArrayList<String> drinkscount  = new ArrayList<>();
-public ArrayList<Integer> drinksmonthly = new ArrayList<>();
+    public int itemcount = 0, pizza_count = 0, burger_count = 0, drinks_count = 0;
+
+    public ArrayList<String> checkout_arraylist = new ArrayList<>();
+
+    public ArrayList<Integer> drinksmonthly = new ArrayList<>();
     public ArrayList<Integer> burgersmonthly = new ArrayList<>();
     public ArrayList<Integer> pizzamonthly = new ArrayList<>();
 
@@ -202,8 +195,8 @@ public ArrayList<Integer> drinksmonthly = new ArrayList<>();
 
             arrayList.add(products.getPrice());
             itemcount += 1;
-            pizzacount.add(order);
-pizza_count += 1;
+            checkout_arraylist.add(order);
+            pizza_count += 1;
         });
 
         burger_table.setOnMouseClicked(event -> {
@@ -223,7 +216,7 @@ pizza_count += 1;
             arrayList.add(products.getPrice());
             itemcount += 1;
             burger_count += 1;
-            burgercount.add(order);
+            checkout_arraylist.add(order);
 
         });
 
@@ -246,7 +239,6 @@ pizza_count += 1;
             itemcount += 1;
 
 
-
         });
 
         drinks_table.setOnMouseClicked(event -> {
@@ -265,7 +257,7 @@ pizza_count += 1;
 
             arrayList.add(products.getPrice());
             itemcount += 1;
-            drinkscount.add(order);
+            checkout_arraylist.add(order);
 
             drinks_count += 1;
 
@@ -275,25 +267,24 @@ pizza_count += 1;
         checkout.setOnMouseClicked(event -> {
             Products productsAdded = checkout.getItems().get(checkout.getSelectionModel().getSelectedIndex());
 
-        checkout.getItems().remove(checkout.getSelectionModel().getSelectedIndex());
+            checkout.getItems().remove(checkout.getSelectionModel().getSelectedIndex());
             itemcount -= 1;
-            System.out.println(productsAdded.getOrder());
 
-            for(int i = 0; i < pizzacount.toArray().length; i++){
-                if(pizzacount.get(i).equals(productsAdded.getOrder())){
-pizza_count -= 1;
+            for (int i = 0; i < checkout_arraylist.toArray().length; i++) {
+                if (checkout_arraylist.get(i).equals(productsAdded.getOrder())) {
+                    pizza_count -= 1;
                 }
                 break;
             }
 
-            for(int i = 0; i < burgercount.toArray().length; i++){
-                if(burgercount.get(i).equals(productsAdded.getOrder())){
+            for (int i = 0; i < checkout_arraylist.toArray().length; i++) {
+                if (checkout_arraylist.get(i).equals(productsAdded.getOrder())) {
                     burger_count -= 1;
                 }
                 break;
             }
-            for(int i = 0; i < drinkscount.toArray().length; i++){
-                if(drinkscount.get(i).equals(productsAdded.getOrder())){
+            for (int i = 0; i < checkout_arraylist.toArray().length; i++) {
+                if (checkout_arraylist.get(i).equals(productsAdded.getOrder())) {
                     drinks_count -= 1;
                 }
                 break;
@@ -364,7 +355,7 @@ pizza_count -= 1;
 
 
         String newdate = "insert into shopping_project.record_sales(date_of_sale, sale_total, items_bought, pizza_count, burger_count, drinks_count)" + " values('" + date + "', '" + total + "' , '" + itemcount + "','"
-                 + pizza_count + "','" + burger_count + "','" + drinks_count + "' );";
+                + pizza_count + "','" + burger_count + "','" + drinks_count + "' );";
 
         try {
             Statement statement = connection.createStatement();
@@ -378,7 +369,7 @@ pizza_count -= 1;
 
 
     public void monthSales() {
-        String sales = "select sale_total, date_of_sale, pizza_count, burger_count, drinks_count from shopping_project.record_sales";
+        String sales = "select * from shopping_project.record_sales";
 
         LocalDate localDate = LocalDate.now();
 
@@ -388,9 +379,10 @@ pizza_count -= 1;
         Float monthlysales = 0.0f;
         int monthlydrinks = 0;
         int monthlyburgers = 0;
-        int monthlypizza =0;
+        int monthlypizza = 0;
+        int total_items_sold = 0;
         ArrayList<Float> monthlySales = new ArrayList<>();
-
+        ArrayList<Integer> total_bought_items = new ArrayList<>();
         try {
 
             Statement statement = connection.createStatement();
@@ -400,9 +392,10 @@ pizza_count -= 1;
 
                 String date = query.getString("date_of_sale");
                 Float sale = query.getFloat("sale_total");
-int drinks = query.getInt("drinks_count");
-int burgers = query.getInt("burger_count");
-int pizza = query.getInt("pizza_count");
+                int drinks = query.getInt("drinks_count");
+                int burgers = query.getInt("burger_count");
+                int pizza = query.getInt("pizza_count");
+                int total_items = query.getInt("items_bought");
                 split = date.split("-");
                 String datelist = split[0] + split[1];
 
@@ -412,7 +405,7 @@ int pizza = query.getInt("pizza_count");
                     drinksmonthly.add(drinks);
                     burgersmonthly.add(burgers);
                     pizzamonthly.add(pizza);
-
+                    total_bought_items.add(total_items);
 
                 }
             }
@@ -430,6 +423,9 @@ int pizza = query.getInt("pizza_count");
                 monthlyburgers += burgersmonthly.get(i);
             }
 
+            for (int i = 0; i < total_bought_items.toArray().length; i++) {
+                total_items_sold += total_bought_items.get(i);
+            }
             System.out.println(monthlysales);
 
         } catch (Exception e) {
@@ -442,8 +438,8 @@ int pizza = query.getInt("pizza_count");
         // second query inserting monthly sales into table
         // check to see if monthly sales has already been added
 
-        String update = "insert into shopping_project.total_sales(monthly_sales, date_of_record,  monthly_drinks_sold, monthly_burgers_sold, monthly_pizza_sold)values ('" + monthlysales + "','" + date + "','" + monthlydrinks +
-                "','" +  monthlyburgers + "','" + monthlypizza + "');";
+        String update = "insert into shopping_project.total_sales(monthly_sales, date_of_record,  monthly_drinks_sold, monthly_burgers_sold, monthly_pizza_sold, total_items_bought)values ('" + monthlysales + "','" + date + "','" + monthlydrinks +
+                "','" + monthlyburgers + "','" + monthlypizza + "','" + total_items_sold + "');";
         try {
 
             Statement statement = connection.createStatement();
@@ -473,9 +469,9 @@ int pizza = query.getInt("pizza_count");
 
         String[] end_of_month = lastDayOfMonth.toString().split(" ");
         String end_of_month_date = end_of_month[0] + end_of_month[1] + end_of_month[2];
-//String testdate = "SatJul30";
+        String testdate = "SatJul30";
 
-        if (end_of_month_date.equals(Current_date)) {
+        if (testdate.equals(Current_date)) {
 
             String date_of_record = "select * from shopping_project.total_sales";
 
