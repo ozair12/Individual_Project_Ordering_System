@@ -6,17 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import org.controlsfx.control.action.Action;
 
-import java.io.IOException;
 import java.sql.*;
-import java.util.Map;
 import java.sql.Statement;
 
 public class LoginController {

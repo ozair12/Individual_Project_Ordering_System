@@ -6,13 +6,11 @@ import com.example.shopping_system.TakeOrder_classes.meal_deals;
 import com.example.shopping_system.TakeOrder_classes.pizza;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.*;
@@ -25,7 +23,9 @@ import java.util.Date;
 public class TakeOrders implements Initializable {
 
 
-    private Float total = 0.0f, change = 0.0f, tax = 0.8f, cash = 0.0f;
+    private Float total = 0.0f;
+    private Float change = 0.0f;
+    private Float cash = 0.0f;
 
     private String chosen_payment = " ";
 
@@ -33,7 +33,6 @@ public class TakeOrders implements Initializable {
 
     @FXML
     private TextField cashtxt, changetxt, taxtxt, subtotaltxt, totaltxt;
-
 
     @FXML
     private ChoiceBox<String> payment_method;
@@ -46,7 +45,7 @@ public class TakeOrders implements Initializable {
     private TableView<com.example.shopping_system.TakeOrder_classes.meal_deals> meal_deals;
 
     @FXML
-    private TableView checkout;
+    private TableView<Products> checkout;
     @FXML
     private TableView<pizza> pizza_table;
 
@@ -84,31 +83,38 @@ public class TakeOrders implements Initializable {
 
 
     // lists for retrieved records to be added to
-    private ObservableList<pizza> observableListpizza = FXCollections.observableArrayList();
-    private ObservableList<burger> observableListburger = FXCollections.observableArrayList();
-    private ObservableList<meal_deals> observableListmeal_deals = FXCollections.observableArrayList();
-    private ObservableList<drinks> observableListdrinks = FXCollections.observableArrayList();
-    private ObservableList<Products> observableList = FXCollections.observableArrayList();
+    private final ObservableList<pizza> observableListpizza = FXCollections.observableArrayList();
+    private final ObservableList<burger> observableListburger = FXCollections.observableArrayList();
+    private final ObservableList<meal_deals> observableListmeal_deals = FXCollections.observableArrayList();
+    private final ObservableList<drinks> observableListdrinks = FXCollections.observableArrayList();
+    private final ObservableList<Products> observableList = FXCollections.observableArrayList();
 
 
-    private DataBaseConnection connectNow = new DataBaseConnection();
-    private Connection connection = connectNow.getConnection();
+    private final DataBaseConnection connectNow = new DataBaseConnection();
+    private final Connection connection = connectNow.getConnection();
 
     public int itemcount = 0;
+    public int pizza_count = 0;
+    public int burger_count = 0;
+    public int drinks_count  = 0;
+    public  ArrayList<String> pizzacount  = new ArrayList<>();
+    public  ArrayList<String> burgercount  = new ArrayList<>();
+    public  ArrayList<String> drinkscount  = new ArrayList<>();
+public ArrayList<Integer> drinksmonthly = new ArrayList<>();
+    public ArrayList<Integer> burgersmonthly = new ArrayList<>();
+    public ArrayList<Integer> pizzamonthly = new ArrayList<>();
 
     public void ProductRecords() {
-
-
-        burger_order.setCellValueFactory(new PropertyValueFactory<burger, String>("burger_order"));
-        burger_price.setCellValueFactory(new PropertyValueFactory<burger, Float>("burger_price"));
-        pizza_order.setCellValueFactory(new PropertyValueFactory<pizza, String>("Pizza_order"));
-        pizza_price.setCellValueFactory(new PropertyValueFactory<pizza, Float>("Pizza_price"));
-        mealdeals_order.setCellValueFactory(new PropertyValueFactory<meal_deals, String>("mealdeal_order"));
-        mealdeals_price.setCellValueFactory(new PropertyValueFactory<meal_deals, Float>("mealdeal_price"));
-        drinks_order.setCellValueFactory(new PropertyValueFactory<drinks, String>("drinks_order"));
-        drinks_price.setCellValueFactory(new PropertyValueFactory<drinks, Float>("drinks_price"));
-        checkout_order.setCellValueFactory(new PropertyValueFactory<Products, String>("Order"));
-        checkout_price.setCellValueFactory(new PropertyValueFactory<Products, Float>("Price"));
+        burger_order.setCellValueFactory(new PropertyValueFactory<>("burger_order"));
+        burger_price.setCellValueFactory(new PropertyValueFactory<>("burger_price"));
+        pizza_order.setCellValueFactory(new PropertyValueFactory<>("Pizza_order"));
+        pizza_price.setCellValueFactory(new PropertyValueFactory<>("Pizza_price"));
+        mealdeals_order.setCellValueFactory(new PropertyValueFactory<>("mealdeal_order"));
+        mealdeals_price.setCellValueFactory(new PropertyValueFactory<>("mealdeal_price"));
+        drinks_order.setCellValueFactory(new PropertyValueFactory<>("drinks_order"));
+        drinks_price.setCellValueFactory(new PropertyValueFactory<>("drinks_price"));
+        checkout_order.setCellValueFactory(new PropertyValueFactory<>("Order"));
+        checkout_price.setCellValueFactory(new PropertyValueFactory<>("Price"));
         String product = "select * from shopping_project.product_catalogue where Product_Type =  '" + "burgers" + "'";
 
         try {
@@ -116,10 +122,7 @@ public class TakeOrders implements Initializable {
             Statement statement = connection.createStatement();
             ResultSet queryResult = statement.executeQuery(product);
 
-
             while (queryResult.next()) {
-
-                //should add the clicked items to the table view
 
                 observableListburger.add(new burger(queryResult.getString("Product_Name"), queryResult.getFloat("Product_Price")));
                 burger_table.setItems(observableListburger);
@@ -132,7 +135,6 @@ public class TakeOrders implements Initializable {
 
             while (queryResult.next()) {
 
-                //should add the clicked items to the table view
 
                 observableListpizza.add(new pizza(queryResult.getString("Product_Name"), queryResult.getFloat("Product_Price")));
                 pizza_table.setItems(observableListpizza);
@@ -146,8 +148,6 @@ public class TakeOrders implements Initializable {
 
             while (queryResult.next()) {
 
-                //should add the clicked items to the table view
-
                 observableListmeal_deals.add(new meal_deals(queryResult.getString("Product_Name"), queryResult.getFloat("Product_Price")));
                 meal_deals.setItems(observableListmeal_deals);
 
@@ -159,8 +159,6 @@ public class TakeOrders implements Initializable {
 
 
             while (queryResult.next()) {
-
-                //should add the clicked items to the table view
 
                 observableListdrinks.add(new drinks(queryResult.getString("Product_Name"), queryResult.getFloat("Product_Price")));
                 drinks_table.setItems(observableListdrinks);
@@ -179,6 +177,7 @@ public class TakeOrders implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         calculate_monthly_sales();
         ProductRecords();
 
@@ -187,109 +186,127 @@ public class TakeOrders implements Initializable {
         payment_method.getItems().addAll(paymentmethod);
 
 
-        pizza_table.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+        pizza_table.setOnMouseClicked(event -> {
 
-                pizza pizza = new pizza();
+            pizza pizza;
 
-                pizza = pizza_table.getItems().get(pizza_table.getSelectionModel().getSelectedIndex());
-                String order = pizza.getPizza_order();
-                Products products = new Products();
-                Float price = pizza.getPizza_price();
-                products.setOrder(order);
-                products.setPrice(price);
+            pizza = pizza_table.getItems().get(pizza_table.getSelectionModel().getSelectedIndex());
+            String order = pizza.getPizza_order();
+            Products products = new Products();
+            Float price = pizza.getPizza_price();
+            products.setOrder(order);
+            products.setPrice(price);
 
-                observableList.add(new Products(order, price));
-                checkout.setItems(observableList);
+            observableList.add(new Products(order, price));
+            checkout.setItems(observableList);
 
-                arrayList.add(products.getPrice());
-                itemcount += 1;
-
-            }
+            arrayList.add(products.getPrice());
+            itemcount += 1;
+            pizzacount.add(order);
+pizza_count += 1;
         });
 
-        burger_table.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+        burger_table.setOnMouseClicked(event -> {
 
-                burger burger = new burger();
+            burger burger;
 
-                burger = burger_table.getItems().get(burger_table.getSelectionModel().getSelectedIndex());
-                String order = burger.getBurger_order();
-                Products products = new Products();
-                Float price = burger.getBurger_price();
-                products.setOrder(order);
-                products.setPrice(price);
+            burger = burger_table.getItems().get(burger_table.getSelectionModel().getSelectedIndex());
+            String order = burger.getBurger_order();
+            Products products = new Products();
+            Float price = burger.getBurger_price();
+            products.setOrder(order);
+            products.setPrice(price);
 
-                observableList.add(new Products(order, price));
-                checkout.setItems(observableList);
+            observableList.add(new Products(order, price));
+            checkout.setItems(observableList);
 
-                arrayList.add(products.getPrice());
-                itemcount += 1;
+            arrayList.add(products.getPrice());
+            itemcount += 1;
+            burger_count += 1;
+            burgercount.add(order);
 
-            }
         });
 
 
-        meal_deals.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+        meal_deals.setOnMouseClicked(event -> {
 
-                meal_deals meal_deals1 = new meal_deals();
+            meal_deals meal_deals1;
 
-                meal_deals1 = meal_deals.getItems().get(meal_deals.getSelectionModel().getSelectedIndex());
-                String order = meal_deals1.getMealdeal_order();
-                Products products = new Products();
-                Float price = meal_deals1.getMealdeal_price();
-                products.setOrder(order);
-                products.setPrice(price);
+            meal_deals1 = meal_deals.getItems().get(meal_deals.getSelectionModel().getSelectedIndex());
+            String order = meal_deals1.getMealdeal_order();
+            Products products = new Products();
+            Float price = meal_deals1.getMealdeal_price();
+            products.setOrder(order);
+            products.setPrice(price);
 
-                observableList.add(new Products(order, price));
-                checkout.setItems(observableList);
+            observableList.add(new Products(order, price));
+            checkout.setItems(observableList);
 
-                arrayList.add(products.getPrice());
-                itemcount += 1;
+            arrayList.add(products.getPrice());
+            itemcount += 1;
 
 
-            }
+
         });
 
-        drinks_table.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+        drinks_table.setOnMouseClicked(event -> {
 
-                drinks drinks = new drinks();
+            drinks drinks;
 
-                drinks = drinks_table.getItems().get(drinks_table.getSelectionModel().getSelectedIndex());
-                String order = drinks.getDrinks_order();
-                Products products = new Products();
-                Float price = drinks.getDrinks_price();
-                products.setOrder(order);
-                products.setPrice(price);
+            drinks = drinks_table.getItems().get(drinks_table.getSelectionModel().getSelectedIndex());
+            String order = drinks.getDrinks_order();
+            Products products = new Products();
+            Float price = drinks.getDrinks_price();
+            products.setOrder(order);
+            products.setPrice(price);
 
-                observableList.add(new Products(order, price));
-                checkout.setItems(observableList);
+            observableList.add(new Products(order, price));
+            checkout.setItems(observableList);
 
-                arrayList.add(products.getPrice());
-                itemcount += 1;
+            arrayList.add(products.getPrice());
+            itemcount += 1;
+            drinkscount.add(order);
 
-            }
+            drinks_count += 1;
+
         });
-        checkout.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                checkout.getItems().remove(checkout.getSelectionModel().getSelectedIndex());
-                itemcount -= 1;
 
+        // currently working here
+        checkout.setOnMouseClicked(event -> {
+            Products productsAdded = checkout.getItems().get(checkout.getSelectionModel().getSelectedIndex());
+
+        checkout.getItems().remove(checkout.getSelectionModel().getSelectedIndex());
+            itemcount -= 1;
+            System.out.println(productsAdded.getOrder());
+
+            for(int i = 0; i < pizzacount.toArray().length; i++){
+                if(pizzacount.get(i).equals(productsAdded.getOrder())){
+pizza_count -= 1;
+                }
+                break;
             }
+
+            for(int i = 0; i < burgercount.toArray().length; i++){
+                if(burgercount.get(i).equals(productsAdded.getOrder())){
+                    burger_count -= 1;
+                }
+                break;
+            }
+            for(int i = 0; i < drinkscount.toArray().length; i++){
+                if(drinkscount.get(i).equals(productsAdded.getOrder())){
+                    drinks_count -= 1;
+                }
+                break;
+            }
+
+
         });
     }
 
-    public void total(ActionEvent event) {
+    public void total() {
         total = 0.0f;
         change = 0.0f;
-        tax = 0.8f;
+        Float tax = 0.8f;
         cash = 0.0f;
 
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
@@ -299,13 +316,13 @@ public class TakeOrders implements Initializable {
         for (int i = 0; i < arrayList.toArray().length; i++) {
             total += arrayList.get(i);
         }
-        Float format = Float.valueOf(decimalFormat.format(total));
+        Float format;
+        format = Float.valueOf(decimalFormat.format(total));
 
-        subtotaltxt.setText(String.valueOf("£" + format));
-        format = Float.valueOf(decimalFormat.format(tax));
+        subtotaltxt.setText("£" + format);
 
 
-        taxtxt.setText(String.valueOf(tax + "%"));
+        taxtxt.setText(tax + "%");
 
 
         Float postTex = total * tax;
@@ -315,12 +332,13 @@ public class TakeOrders implements Initializable {
         total = tax + total;
         format = Float.valueOf(decimalFormat.format(total));
         total = format;
-        totaltxt.setText(String.valueOf("£" + format));
+        totaltxt.setText("£" + format);
 
     }
 
 
-    public void change(ActionEvent event) {
+    public void change() {
+
 
         if (cashtxt.getText().isBlank() && chosen_payment.equals("Cash")) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -330,9 +348,9 @@ public class TakeOrders implements Initializable {
             cash = Float.valueOf(cashtxt.getText());
             change = cash - total;
             DecimalFormat decimalFormat = new DecimalFormat("#.##");
-            Float format = Float.valueOf(decimalFormat.format(change));
+            float format = Float.parseFloat(decimalFormat.format(change));
 
-            changetxt.setText(String.valueOf("£" + format));
+            changetxt.setText("£" + format);
             date();
 
         }
@@ -345,7 +363,8 @@ public class TakeOrders implements Initializable {
         String date = String.valueOf(localDateTime.toLocalDate());
 
 
-        String newdate = "insert into shopping_project.record_sales(date_of_sale, sale_total, items_bought)" + " values('" + date + "', '" + total + "' , '" + itemcount + "');";
+        String newdate = "insert into shopping_project.record_sales(date_of_sale, sale_total, items_bought, pizza_count, burger_count, drinks_count)" + " values('" + date + "', '" + total + "' , '" + itemcount + "','"
+                 + pizza_count + "','" + burger_count + "','" + drinks_count + "' );";
 
         try {
             Statement statement = connection.createStatement();
@@ -359,7 +378,7 @@ public class TakeOrders implements Initializable {
 
 
     public void monthSales() {
-        String sales = "select sale_total, date_of_sale from shopping_project.record_sales";
+        String sales = "select sale_total, date_of_sale, pizza_count, burger_count, drinks_count from shopping_project.record_sales";
 
         LocalDate localDate = LocalDate.now();
 
@@ -367,6 +386,9 @@ public class TakeOrders implements Initializable {
         String finaltime = split[0] + split[1];
 
         Float monthlysales = 0.0f;
+        int monthlydrinks = 0;
+        int monthlyburgers = 0;
+        int monthlypizza =0;
         ArrayList<Float> monthlySales = new ArrayList<>();
 
         try {
@@ -378,19 +400,36 @@ public class TakeOrders implements Initializable {
 
                 String date = query.getString("date_of_sale");
                 Float sale = query.getFloat("sale_total");
-
+int drinks = query.getInt("drinks_count");
+int burgers = query.getInt("burger_count");
+int pizza = query.getInt("pizza_count");
                 split = date.split("-");
                 String datelist = split[0] + split[1];
 
 
                 if (datelist.equals(finaltime)) {
                     monthlySales.add(sale);
+                    drinksmonthly.add(drinks);
+                    burgersmonthly.add(burgers);
+                    pizzamonthly.add(pizza);
+
+
                 }
             }
 //outside query
             for (int i = 0; i < monthlySales.toArray().length; i++) {
                 monthlysales += monthlySales.get(i);
             }
+            for (int i = 0; i < drinksmonthly.toArray().length; i++) {
+                monthlydrinks += drinksmonthly.get(i);
+            }
+            for (int i = 0; i < pizzamonthly.toArray().length; i++) {
+                monthlypizza += pizzamonthly.get(i);
+            }
+            for (int i = 0; i < burgersmonthly.toArray().length; i++) {
+                monthlyburgers += burgersmonthly.get(i);
+            }
+
             System.out.println(monthlysales);
 
         } catch (Exception e) {
@@ -403,7 +442,8 @@ public class TakeOrders implements Initializable {
         // second query inserting monthly sales into table
         // check to see if monthly sales has already been added
 
-        String update = "insert into shopping_project.total_sales(monthly_sales, date_of_record)values ('" + monthlysales + "'" + "," + "'" + date + "'" + ")" + ";";
+        String update = "insert into shopping_project.total_sales(monthly_sales, date_of_record,  monthly_drinks_sold, monthly_burgers_sold, monthly_pizza_sold)values ('" + monthlysales + "','" + date + "','" + monthlydrinks +
+                "','" +  monthlyburgers + "','" + monthlypizza + "');";
         try {
 
             Statement statement = connection.createStatement();
@@ -433,7 +473,7 @@ public class TakeOrders implements Initializable {
 
         String[] end_of_month = lastDayOfMonth.toString().split(" ");
         String end_of_month_date = end_of_month[0] + end_of_month[1] + end_of_month[2];
-//String testdate = "SunJul24";
+//String testdate = "SatJul30";
 
         if (end_of_month_date.equals(Current_date)) {
 
@@ -450,26 +490,19 @@ public class TakeOrders implements Initializable {
 
                     String testDate = query.getString("date_of_record");
                     dates_added.add(testDate);
-                    dates_added.add(testDate);
 
                 }
-                Boolean bool = true;
+                boolean bool = true;
                 for (int i = 0; i < dates_added.toArray().length; i++) {
-                    if (!dates_added.get(i).equals(Current_Date)) {
-                        bool = true;
-                    } else {
-                        bool = false;
-                    }
+                    bool = !dates_added.get(i).equals(Current_Date);
                 }
-                if (bool == true) {
+                if (bool) {
                     monthSales();
                 }
-            } catch (SQLException e) {
+            } catch (SQLException ignored) {
             }
 
             System.out.println("Today is the last day of the month and monthly sales will be calculated");
-        } else {
-
         }
 
     }
