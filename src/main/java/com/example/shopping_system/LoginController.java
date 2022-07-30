@@ -90,17 +90,20 @@ public class LoginController {
         Parent root = FXMLLoader.load(getClass().getResource("CheckOrders.fxml"));
         Stage stage = (Stage) CheckOrdersbtn.getScene().getWindow();
         stage.setScene(new Scene(root, 500, 500));
+        stage.setMaximized(true);
     }
 
     public void CheckSales(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("CheckSales.fxml"));
         Stage stage = (Stage) CheckSalesbtn.getScene().getWindow();
         stage.setScene(new Scene(root, 500, 500));
+        stage.setMaximized(true);
     }
 
     public void UpdateProducts(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("UpdateProducts.fxml"));
         Stage stage = (Stage) UpdateProductsbtn.getScene().getWindow();
         stage.setScene(new Scene(root, 500, 500));
+        stage.setMaximized(true);
     }
 }
