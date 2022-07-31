@@ -7,10 +7,15 @@ import com.example.shopping_system.TakeOrder_classes.pizza;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.*;
@@ -97,6 +102,8 @@ public class TakeOrders implements Initializable {
     public ArrayList<Integer> burgersmonthly = new ArrayList<>();
     public ArrayList<Integer> pizzamonthly = new ArrayList<>();
 
+    @FXML
+    private Button resetbtn, exitbtn;
     public void ProductRecords() {
         burger_order.setCellValueFactory(new PropertyValueFactory<>("burger_order"));
         burger_price.setCellValueFactory(new PropertyValueFactory<>("burger_price"));
@@ -292,6 +299,34 @@ public class TakeOrders implements Initializable {
 
 
         });
+
+        resetbtn.setOnMouseClicked(event -> {
+
+            checkout_arraylist.clear();
+            changetxt.clear();
+            checkout.getItems().clear();
+            taxtxt.clear();
+            totaltxt.clear();
+            subtotaltxt.clear();
+            cashtxt.clear();
+
+        });
+
+        exitbtn.setOnMouseClicked(event -> {
+
+            try {
+                Exit();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+    }
+    public void Exit() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Main-screen.fxml"));
+        Stage stage = (Stage) exitbtn.getScene().getWindow();
+        stage.setScene(new Scene(root, 500, 500));
+        stage.setMaximized(true);
     }
 
     public void total() {
@@ -502,5 +537,8 @@ public class TakeOrders implements Initializable {
         }
 
     }
+
+
+
 }
 
