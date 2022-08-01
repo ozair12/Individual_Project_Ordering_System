@@ -7,7 +7,6 @@ import com.example.shopping_system.TakeOrder_classes.pizza;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -66,7 +65,7 @@ public class TakeOrders implements Initializable {
     @FXML
     private TableView<meal_deals> meal_deals;
     @FXML
-    private TableColumn<meal_deals, String> mealdeals_order;
+    private TableColumn<com.example.shopping_system.TakeOrder_classes.meal_deals, String> mealdeals_order;
 
     @FXML
     private TableColumn<meal_deals, Float> mealdeals_price;
