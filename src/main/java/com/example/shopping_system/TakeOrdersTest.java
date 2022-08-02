@@ -18,13 +18,12 @@ import static org.junit.Assert.*;
 public class TakeOrdersTest {
 
 
-
     @Test
     public void total() {
         Float total = 0.0f;
         Float change = 0.0f;
-        Float   tax = 0.8f;
-        Float  cash = 0.0f;
+        Float tax = 0.8f;
+        Float cash = 0.0f;
 
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
@@ -33,8 +32,8 @@ public class TakeOrdersTest {
         Float format;
         format = Float.valueOf(decimalFormat.format(total));
 
-        Float  subtotal =  format;
-        Float addedtax = tax ;
+        Float subtotal = format;
+        Float addedtax = tax;
         Float postTex = total * tax;
 
 
@@ -46,8 +45,8 @@ public class TakeOrdersTest {
         total = format;
         Float finaltotal = format;
         assertEquals(600, tax, 0.01);
-        assertEquals(2400, postTex,0.01);
-        assertEquals(3600,finaltotal,0.01);
+        assertEquals(2400, postTex, 0.01);
+        assertEquals(3600, finaltotal, 0.01);
 
     }
 
@@ -59,7 +58,7 @@ public class TakeOrdersTest {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         Float format = Float.parseFloat(decimalFormat.format(change));
         System.out.println(format);
-        assertEquals(format,format,5.01);
+        assertEquals(format, format, 5.01);
     }
 
     @Test
@@ -109,7 +108,7 @@ public class TakeOrdersTest {
 
             boolean bool = true;
 
-            for(int i = 0; i < monthlysale.toArray().length; i++){
+            for (int i = 0; i < monthlysale.toArray().length; i++) {
                 monthlysales += monthlysale.get(i);
             }
 
