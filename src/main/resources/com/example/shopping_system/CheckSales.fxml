@@ -5,34 +5,40 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="574.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopping_system.Checksales">
+<Pane prefHeight="574.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.shopping_system.Checksales">
     <AnchorPane layoutX="1.0" prefHeight="574.0" prefWidth="247.0" style="-fx-background-color: #FFD190;">
-      <children>
-         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/meal_deal.jpg" />
-            </image>
-         </ImageView>
-         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/burger_super.png" />
-            </image>
-         </ImageView>
-      </children></AnchorPane>
-    <ImageView fx:id="logo" fitHeight="167.0" fitWidth="452.0" layoutY="2.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+        <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="180.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/meal_deal.jpg"/>
+                </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="345.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/burger_super.png"/>
+                </image>
+            </ImageView>
+        </children>
+    </AnchorPane>
+    <ImageView fx:id="logo" fitHeight="167.0" fitWidth="452.0" layoutY="2.0" opacity="0.55" pickOnBounds="true"
+               preserveRatio="true">
         <viewport>
-            <Rectangle2D />
+            <Rectangle2D/>
         </viewport>
         <image>
-            <Image url="@../../../Shopping_Project_Images/logo.png" />
+            <Image url="@../../../Shopping_Project_Images/logo.png"/>
 
 
         </image>
     </ImageView>
 
-    <ImageView fitHeight="147.0" fitWidth="200.0" layoutX="216.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="147.0" fitWidth="200.0" layoutX="216.0" opacity="0.25" pickOnBounds="true"
+               preserveRatio="true">
         <image>
-            <Image url="@../../../Shopping_Project_Images/red-star.png" />
+            <Image url="@../../../Shopping_Project_Images/red-star.png"/>
         </image>
     </ImageView>
     <TabPane layoutX="254.0" layoutY="155.0" prefHeight="340.0" prefWidth="545.0" tabClosingPolicy="UNAVAILABLE">
@@ -41,14 +47,17 @@
                 <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
-                            <TableView fx:id="weekly_sales" layoutX="8.0" layoutY="10.0" prefHeight="297.0" prefWidth="533.0">
+                            <TableView fx:id="weekly_sales" layoutX="8.0" layoutY="10.0" prefHeight="297.0"
+                                       prefWidth="533.0">
                                 <columns>
-                                    <TableColumn fx:id="date_of_sale" prefWidth="75.0" text="Date of sale" />
-                                    <TableColumn fx:id="total_sale" prefWidth="85.33334350585938" text="Total sale" />
-                                    <TableColumn fx:id="total_items_bought" prefWidth="122.66668701171875" text="Total items bought" />
-                                    <TableColumn fx:id="No_drinks" prefWidth="80.33328247070312" text="No.Drinks" />
-                                    <TableColumn fx:id="No_burgers" prefWidth="79.99996948242188" text="No.Burgers" />
-                                    <TableColumn fx:id="No_pizza" prefWidth="84.33331298828125" style="-fx-font-size: 11" text="No.Pizza" />
+                                    <TableColumn fx:id="date_of_sale" prefWidth="75.0" text="Date of sale"/>
+                                    <TableColumn fx:id="total_sale" prefWidth="85.33334350585938" text="Total sale"/>
+                                    <TableColumn fx:id="total_items_bought" prefWidth="122.66668701171875"
+                                                 text="Total items bought"/>
+                                    <TableColumn fx:id="No_drinks" prefWidth="80.33328247070312" text="No.Drinks"/>
+                                    <TableColumn fx:id="No_burgers" prefWidth="79.99996948242188" text="No.Burgers"/>
+                                    <TableColumn fx:id="No_pizza" prefWidth="84.33331298828125"
+                                                 style="-fx-font-size: 11" text="No.Pizza"/>
                                 </columns>
                             </TableView>
                         </children>
@@ -61,12 +70,14 @@
                         <children>
                             <TableView fx:id="Monthly_Sales" layoutX="6.0" prefHeight="308.0" prefWidth="538.0">
                                 <columns>
-                                    <TableColumn fx:id="Date_of_sale" prefWidth="75.0" text="Date of sale" />
-                                    <TableColumn fx:id="Total_sale" prefWidth="85.33334350585938" text="Total sale" />
-                                    <TableColumn fx:id="Total_items_bought" prefWidth="122.66668701171875" text="Total items bought" />
-                                    <TableColumn fx:id="No_Drinks" prefWidth="80.33328247070312" text="No.Drinks" />
-                                    <TableColumn fx:id="No_Burgers" prefWidth="79.99996948242188" text="No.Burgers" />
-                                    <TableColumn fx:id="No_Pizza" prefWidth="84.33331298828125" style="-fx-font-size: 11" text="No.Pizza" />
+                                    <TableColumn fx:id="Date_of_sale" prefWidth="75.0" text="Date of sale"/>
+                                    <TableColumn fx:id="Total_sale" prefWidth="85.33334350585938" text="Total sale"/>
+                                    <TableColumn fx:id="Total_items_bought" prefWidth="122.66668701171875"
+                                                 text="Total items bought"/>
+                                    <TableColumn fx:id="No_Drinks" prefWidth="80.33328247070312" text="No.Drinks"/>
+                                    <TableColumn fx:id="No_Burgers" prefWidth="79.99996948242188" text="No.Burgers"/>
+                                    <TableColumn fx:id="No_Pizza" prefWidth="84.33331298828125"
+                                                 style="-fx-font-size: 11" text="No.Pizza"/>
                                 </columns>
                             </TableView>
                         </children>
@@ -75,30 +86,37 @@
             </Tab>
         </tabs>
     </TabPane>
-   <ImageView fitHeight="128.0" fitWidth="234.0" layoutX="463.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../../Shopping_Project_Images/burger.jpg" />
-      </image></ImageView>
-   <ImageView fitHeight="106.0" fitWidth="193.0" layoutX="686.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../../Shopping_Project_Images/soft-drinks.jpg" />
-      </image>
-   </ImageView>
-   <Button fx:id="returnbtn" layoutX="818.0" layoutY="122.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="64.0" text="Return " />
-    <AnchorPane layoutX="266.0" layoutY="499.0" prefHeight="69.0" prefWidth="501.0" style="-fx-background-color: orange;">
+    <ImageView fitHeight="128.0" fitWidth="234.0" layoutX="463.0" layoutY="10.0" pickOnBounds="true"
+               preserveRatio="true">
+        <image>
+            <Image url="@../../../Shopping_Project_Images/burger.jpg"/>
+        </image>
+    </ImageView>
+    <ImageView fitHeight="106.0" fitWidth="193.0" layoutX="686.0" layoutY="10.0" pickOnBounds="true"
+               preserveRatio="true">
+        <image>
+            <Image url="@../../../Shopping_Project_Images/soft-drinks.jpg"/>
+        </image>
+    </ImageView>
+    <Button fx:id="returnbtn" layoutX="818.0" layoutY="122.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="64.0"
+            text="Return "/>
+    <AnchorPane layoutX="266.0" layoutY="499.0" prefHeight="69.0" prefWidth="501.0"
+                style="-fx-background-color: orange;">
         <children>
-            <Label layoutX="7.0" layoutY="5.0" text="Telephone No. 020 3456897" />
-            <Label layoutX="7.0" layoutY="26.0" text="Address: 25 StoneBridge Road " />
-            <Label layoutX="7.0" layoutY="46.0" text="PostCode: HA8 9FD" />
-            <Label layoutX="342.0" layoutY="5.0" text="Follow Us On Social Media" />
-            <ImageView fx:id="twitter_icon" fitHeight="28.0" fitWidth="35.0" layoutX="378.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="7.0" layoutY="5.0" text="Telephone No. 020 3456897"/>
+            <Label layoutX="7.0" layoutY="26.0" text="Address: 25 StoneBridge Road "/>
+            <Label layoutX="7.0" layoutY="46.0" text="PostCode: HA8 9FD"/>
+            <Label layoutX="342.0" layoutY="5.0" text="Follow Us On Social Media"/>
+            <ImageView fx:id="twitter_icon" fitHeight="28.0" fitWidth="35.0" layoutX="378.0" layoutY="32.0"
+                       pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../../../Shopping_Project_Images/Twitter-logo.svg.png" />
+                    <Image url="@../../../Shopping_Project_Images/Twitter-logo.svg.png"/>
                 </image>
             </ImageView>
-            <ImageView fx:id="insta_icon" fitHeight="28.0" fitWidth="57.0" layoutX="431.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="insta_icon" fitHeight="28.0" fitWidth="57.0" layoutX="431.0" layoutY="32.0"
+                       pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../../../Shopping_Project_Images/insta.png" />
+                    <Image url="@../../../Shopping_Project_Images/insta.png"/>
                 </image>
             </ImageView>
         </children>

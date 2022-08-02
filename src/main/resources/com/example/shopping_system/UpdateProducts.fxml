@@ -5,84 +5,109 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="570.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopping_system.Update_Products">
+<Pane prefHeight="570.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.shopping_system.Update_Products">
     <AnchorPane layoutX="1.0" prefHeight="570.0" prefWidth="156.0" style="-fx-background-color: #FFD190;">
-      <children>
-         <ImageView fitHeight="161.0" fitWidth="141.0" layoutX="8.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/softdrink.jpg" />
-            </image>
-         </ImageView>
-      </children></AnchorPane>
+        <children>
+            <ImageView fitHeight="161.0" fitWidth="141.0" layoutX="8.0" layoutY="379.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/softdrink.jpg"/>
+                </image>
+            </ImageView>
+        </children>
+    </AnchorPane>
     <ImageView fx:id="logo" fitHeight="147.0" fitWidth="511.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
         <viewport>
-            <Rectangle2D />
+            <Rectangle2D/>
         </viewport>
         <image>
-            <Image url="@../../../Shopping_Project_Images/logo.png" />
+            <Image url="@../../../Shopping_Project_Images/logo.png"/>
         </image>
     </ImageView>
 
-    <ImageView fitHeight="147.0" fitWidth="200.0" layoutX="216.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="147.0" fitWidth="200.0" layoutX="216.0" opacity="0.25" pickOnBounds="true"
+               preserveRatio="true">
         <image>
-            <Image url="@../../../Shopping_Project_Images/red-star.png" />
+            <Image url="@../../../Shopping_Project_Images/red-star.png"/>
         </image>
     </ImageView>
-    <Label layoutX="175.0" layoutY="162.0" prefHeight="26.0" prefWidth="156.0" text="Add Product To Catalogue" />
-   <AnchorPane layoutX="345.0" layoutY="160.0" prefHeight="289.0" prefWidth="200.0" style="-fx-background-color: #FBC02D;">
-      <children>
-          <Button fx:id="delete_product_btn" layoutX="63.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Delete" />
-          <ChoiceBox fx:id="delete_product_list" layoutX="25.0" layoutY="215.0" prefWidth="150.0" />
-          <Label layoutX="13.0" layoutY="180.0" prefHeight="26.0" prefWidth="174.0" text="Delete Product From Catalogue" />
-         <ImageView fitHeight="99.0" fitWidth="193.0" layoutX="7.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/Pizza_Express_.jpg" />
-            </image>
-         </ImageView>
-      </children>
-   </AnchorPane>
-   <AnchorPane layoutX="168.0" layoutY="159.0" prefHeight="296.0" prefWidth="163.0" style="-fx-background-color: #f69697;">
-      <children>
-      
-          <TextField fx:id="new_product_name" layoutX="20.0" layoutY="75.0" prefHeight="25.0" prefWidth="123.0" promptText="Enter Product Name " />
-          <TextField fx:id="new_pizza_toppings" layoutX="11.0" layoutY="112.0" prefHeight="25.0" prefWidth="141.0" promptText="Enter Pizza Toppings" />
-          <TextField fx:id="new_product_price" layoutX="20.0" layoutY="148.0" prefHeight="25.0" prefWidth="123.0" promptText="Enter Product Price" />
-          <TextField fx:id="new_product_quantity" layoutX="13.0" layoutY="181.0" prefHeight="25.0" prefWidth="138.0" promptText="New Product Quantity" />
-          <ChoiceBox fx:id="add_product_list" layoutX="7.0" layoutY="215.0" prefWidth="150.0" />
-          <Button fx:id="add_product_btn" layoutX="45.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Add" />
-      </children>
-   </AnchorPane>
-   <AnchorPane layoutX="554.0" layoutY="158.0" prefHeight="289.0" prefWidth="200.0" style="-fx-background-color: #FFEB3B;">
-      <children>
-          <ChoiceBox fx:id="product_list" layoutX="25.0" layoutY="217.0" prefWidth="150.0" />
-          <TextField fx:id="update_product_quantity" layoutX="25.0" layoutY="145.0" prefHeight="25.0" prefWidth="150.0" promptText="Update Product Quantity" />
-          <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="172.0" text="Enter the values to be updated" />
-         <Label layoutX="31.0" layoutY="188.0" text="Select product to be updated" />
-          <Button fx:id="update_product_btn" layoutX="63.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Update" />
-          <TextField fx:id="update_product_name" layoutX="31.0" layoutY="40.0" prefHeight="25.0" prefWidth="138.0" promptText="Update Product Name " />
-          <TextField fx:id="update_pizza_toppings" layoutX="29.0" layoutY="105.0" prefHeight="25.0" prefWidth="141.0" promptText="Update Pizza Toppings" />
-          <TextField fx:id="update_product_price" layoutX="34.0" layoutY="73.0" prefHeight="25.0" prefWidth="132.0" promptText="Update Product Price" />
-      </children>
-   </AnchorPane>
-   <ImageView fitHeight="147.0" fitWidth="244.0" layoutX="521.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../../Shopping_Project_Images/burger.jpg" />
-      </image>
-   </ImageView>
-    <AnchorPane layoutX="167.0" layoutY="467.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: orange;">
+    <Label layoutX="175.0" layoutY="162.0" prefHeight="26.0" prefWidth="156.0" text="Add Product To Catalogue"/>
+    <AnchorPane layoutX="345.0" layoutY="160.0" prefHeight="289.0" prefWidth="200.0"
+                style="-fx-background-color: #FBC02D;">
         <children>
-            <Label layoutX="7.0" layoutY="5.0" text="Telephone No. 020 3456897" />
-            <Label layoutX="7.0" layoutY="29.0" text="Address: 25 StoneBridge Road " />
-            <Label layoutX="7.0" layoutY="53.0" text="PostCode: HA8 9FD" />
-            <Label layoutX="182.0" layoutY="5.0" text="Follow Us On Social Media" />
-            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="delete_product_btn" layoutX="63.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0"
+                    prefWidth="73.0" text="Delete"/>
+            <ChoiceBox fx:id="delete_product_list" layoutX="25.0" layoutY="215.0" prefWidth="150.0"/>
+            <Label layoutX="13.0" layoutY="180.0" prefHeight="26.0" prefWidth="174.0"
+                   text="Delete Product From Catalogue"/>
+            <ImageView fitHeight="99.0" fitWidth="193.0" layoutX="7.0" layoutY="36.0" pickOnBounds="true"
+                       preserveRatio="true">
                 <image>
-                    <Image url="@../../../Shopping_Project_Images/Twitter-logo.svg.png" />
+                    <Image url="@../../../Shopping_Project_Images/Pizza_Express_.jpg"/>
                 </image>
             </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="63.0" layoutX="240.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="168.0" layoutY="159.0" prefHeight="296.0" prefWidth="163.0"
+                style="-fx-background-color: #f69697;">
+        <children>
+
+            <TextField fx:id="new_product_name" layoutX="20.0" layoutY="75.0" prefHeight="25.0" prefWidth="123.0"
+                       promptText="Enter Product Name "/>
+            <TextField fx:id="new_pizza_toppings" layoutX="11.0" layoutY="112.0" prefHeight="25.0" prefWidth="141.0"
+                       promptText="Enter Pizza Toppings"/>
+            <TextField fx:id="new_product_price" layoutX="20.0" layoutY="148.0" prefHeight="25.0" prefWidth="123.0"
+                       promptText="Enter Product Price"/>
+            <TextField fx:id="new_product_quantity" layoutX="13.0" layoutY="181.0" prefHeight="25.0" prefWidth="138.0"
+                       promptText="New Product Quantity"/>
+            <ChoiceBox fx:id="add_product_list" layoutX="7.0" layoutY="215.0" prefWidth="150.0"/>
+            <Button fx:id="add_product_btn" layoutX="45.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0"
+                    prefWidth="73.0" text="Add"/>
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="554.0" layoutY="158.0" prefHeight="289.0" prefWidth="200.0"
+                style="-fx-background-color: #FFEB3B;">
+        <children>
+            <ChoiceBox fx:id="product_list" layoutX="25.0" layoutY="217.0" prefWidth="150.0"/>
+            <TextField fx:id="update_product_quantity" layoutX="25.0" layoutY="145.0" prefHeight="25.0"
+                       prefWidth="150.0" promptText="Update Product Quantity"/>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="172.0"
+                   text="Enter the values to be updated"/>
+            <Label layoutX="31.0" layoutY="188.0" text="Select product to be updated"/>
+            <Button fx:id="update_product_btn" layoutX="63.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0"
+                    prefWidth="73.0" text="Update"/>
+            <TextField fx:id="update_product_name" layoutX="31.0" layoutY="40.0" prefHeight="25.0" prefWidth="138.0"
+                       promptText="Update Product Name "/>
+            <TextField fx:id="update_pizza_toppings" layoutX="29.0" layoutY="105.0" prefHeight="25.0" prefWidth="141.0"
+                       promptText="Update Pizza Toppings"/>
+            <TextField fx:id="update_product_price" layoutX="34.0" layoutY="73.0" prefHeight="25.0" prefWidth="132.0"
+                       promptText="Update Product Price"/>
+        </children>
+    </AnchorPane>
+    <ImageView fitHeight="147.0" fitWidth="244.0" layoutX="521.0" layoutY="11.0" pickOnBounds="true"
+               preserveRatio="true">
+        <image>
+            <Image url="@../../../Shopping_Project_Images/burger.jpg"/>
+        </image>
+    </ImageView>
+    <AnchorPane layoutX="167.0" layoutY="467.0" prefHeight="99.0" prefWidth="382.0"
+                style="-fx-background-color: orange;">
+        <children>
+            <Label layoutX="7.0" layoutY="5.0" text="Telephone No. 020 3456897"/>
+            <Label layoutX="7.0" layoutY="29.0" text="Address: 25 StoneBridge Road "/>
+            <Label layoutX="7.0" layoutY="53.0" text="PostCode: HA8 9FD"/>
+            <Label layoutX="182.0" layoutY="5.0" text="Follow Us On Social Media"/>
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true"
+                       preserveRatio="true">
                 <image>
-                    <Image url="@../../../Shopping_Project_Images/insta.png" />
+                    <Image url="@../../../Shopping_Project_Images/Twitter-logo.svg.png"/>
+                </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="63.0" layoutX="240.0" layoutY="31.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/insta.png"/>
                 </image>
             </ImageView>
         </children>

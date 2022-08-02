@@ -8,6 +8,8 @@ module com.example.shopping_system {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
 requires java.sql;
+    requires org.testng;
+    requires junit;
 
     opens com.example.shopping_system to javafx.fxml;
     exports com.example.shopping_system;

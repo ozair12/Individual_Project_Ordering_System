@@ -6,79 +6,98 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="500.0" prefWidth="542.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopping_system.LoginController">
-   <AnchorPane layoutX="211.0" layoutY="181.0" prefHeight="222.0" prefWidth="270.0">
-      <children>
-            <Button fx:id="Orderbtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#TakeOrders" opacity="0.52" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: red;" text="Take Orders" textAlignment="CENTER" textFill="#ed9f3f">
+<Pane prefHeight="500.0" prefWidth="542.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.shopping_system.LoginController">
+    <AnchorPane layoutX="211.0" layoutY="181.0" prefHeight="222.0" prefWidth="270.0">
+        <children>
+            <Button fx:id="Orderbtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#TakeOrders"
+                    opacity="0.52" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: red;"
+                    text="Take Orders" textAlignment="CENTER" textFill="#ed9f3f">
                 <font>
-                    <Font name="Arial Nova Bold" size="14.0" />
+                    <Font name="Arial Nova Bold" size="14.0"/>
                 </font>
             </Button>
-            <Button fx:id="UpdateProductsbtn" layoutX="115.0" layoutY="64.0" mnemonicParsing="false" onAction="#UpdateProducts" opacity="0.52" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: red;" text="Update Product " textAlignment="CENTER" textFill="#ed9f3f">
+            <Button fx:id="UpdateProductsbtn" layoutX="115.0" layoutY="64.0" mnemonicParsing="false"
+                    onAction="#UpdateProducts" opacity="0.52" prefHeight="40.0" prefWidth="143.0"
+                    style="-fx-background-color: red;" text="Update Product " textAlignment="CENTER" textFill="#ed9f3f">
                 <font>
-                    <Font name="Arial Nova Bold" size="14.0" />
+                    <Font name="Arial Nova Bold" size="14.0"/>
                 </font>
             </Button>
-            <Button fx:id="CheckSalesbtn" layoutX="14.0" layoutY="116.0" mnemonicParsing="false" onAction="#CheckSales" opacity="0.56" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: red;" text="Review Sales" textAlignment="CENTER" textFill="#ed9f3f">
+            <Button fx:id="CheckSalesbtn" layoutX="14.0" layoutY="116.0" mnemonicParsing="false" onAction="#CheckSales"
+                    opacity="0.56" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: red;"
+                    text="Review Sales" textAlignment="CENTER" textFill="#ed9f3f">
                 <font>
-                    <Font name="Arial Nova Bold" size="14.0" />
+                    <Font name="Arial Nova Bold" size="14.0"/>
                 </font>
             </Button>
-            <Button fx:id="LoginScreenbtn" layoutX="115.0" layoutY="173.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ReturnToLogin" opacity="0.51" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: red;" text="login screen" textAlignment="CENTER" textFill="#ed9f3f">
+            <Button fx:id="LoginScreenbtn" layoutX="115.0" layoutY="173.0" maxHeight="1.7976931348623157E308"
+                    maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ReturnToLogin" opacity="0.51"
+                    prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: red;" text="login screen"
+                    textAlignment="CENTER" textFill="#ed9f3f">
                 <font>
-                    <Font name="Arial Nova Bold" size="14.0" />
+                    <Font name="Arial Nova Bold" size="14.0"/>
                 </font>
             </Button>
-      </children>
-   </AnchorPane>
+        </children>
+    </AnchorPane>
     <AnchorPane layoutX="1.0" prefHeight="500.0" prefWidth="193.0" style="-fx-background-color: #FFD190;">
-      <children>
-         <ImageView fitHeight="128.0" fitWidth="179.0" layoutX="-11.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fitHeight="114.0" fitWidth="157.0" layoutX="11.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/Pizza_Express_.jpg" />
-            </image>
-         </ImageView>
-         <ImageView fitHeight="107.0" fitWidth="173.0" layoutX="7.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/burger.jpg" />
-            </image>
-         </ImageView>
-      </children></AnchorPane>
+        <children>
+            <ImageView fitHeight="128.0" fitWidth="179.0" layoutX="-11.0" layoutY="295.0" pickOnBounds="true"
+                       preserveRatio="true"/>
+            <ImageView fitHeight="114.0" fitWidth="157.0" layoutX="11.0" layoutY="333.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/Pizza_Express_.jpg"/>
+                </image>
+            </ImageView>
+            <ImageView fitHeight="107.0" fitWidth="173.0" layoutX="7.0" layoutY="178.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/burger.jpg"/>
+                </image>
+            </ImageView>
+        </children>
+    </AnchorPane>
 
-    <ImageView fx:id="logo" fitHeight="162.0" fitWidth="534.0" focusTraversable="true" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="logo" fitHeight="162.0" fitWidth="534.0" focusTraversable="true" opacity="0.55"
+               pickOnBounds="true" preserveRatio="true">
         <viewport>
-            <Rectangle2D />
+            <Rectangle2D/>
         </viewport>
         <image>
-            <Image url="@../../../Shopping_Project_Images/logo.png" />
+            <Image url="@../../../Shopping_Project_Images/logo.png"/>
 
 
         </image>
     </ImageView>
-    <ImageView fitHeight="139.0" fitWidth="146.0" layoutX="250.0" layoutY="4.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="139.0" fitWidth="146.0" layoutX="250.0" layoutY="4.0" opacity="0.16" pickOnBounds="true"
+               preserveRatio="true">
         <image>
-            <Image url="@../../../Shopping_Project_Images/red-star.png" />
+            <Image url="@../../../Shopping_Project_Images/red-star.png"/>
         </image>
     </ImageView>
-   <AnchorPane layoutX="210.0" layoutY="411.0" prefHeight="75.0" prefWidth="329.0" style="-fx-background-color: orange;">
-      <children>
-         <Label layoutX="7.0" layoutY="5.0" text="Telephone No. 020 3456897" />
-         <Label layoutX="7.0" layoutY="29.0" text="Address: 25 StoneBridge Road " />
-         <Label layoutX="7.0" layoutY="53.0" text="PostCode: HA8 9FD" />
-         <Label layoutX="182.0" layoutY="5.0" text="Follow Us On Social Media" />
-         <ImageView fitHeight="28.0" fitWidth="35.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/Twitter-logo.svg.png" />
-            </image>
-         </ImageView>
-         <ImageView fitHeight="28.0" fitWidth="57.0" layoutX="232.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/insta.png" />
-            </image>
-         </ImageView>
-      </children>
-   </AnchorPane>
+    <AnchorPane layoutX="210.0" layoutY="411.0" prefHeight="75.0" prefWidth="329.0"
+                style="-fx-background-color: orange;">
+        <children>
+            <Label layoutX="7.0" layoutY="5.0" text="Telephone No. 020 3456897"/>
+            <Label layoutX="7.0" layoutY="29.0" text="Address: 25 StoneBridge Road "/>
+            <Label layoutX="7.0" layoutY="53.0" text="PostCode: HA8 9FD"/>
+            <Label layoutX="182.0" layoutY="5.0" text="Follow Us On Social Media"/>
+            <ImageView fitHeight="28.0" fitWidth="35.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/Twitter-logo.svg.png"/>
+                </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="57.0" layoutX="232.0" layoutY="32.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/insta.png"/>
+                </image>
+            </ImageView>
+        </children>
+    </AnchorPane>
 
 
 </Pane>

@@ -103,6 +103,7 @@ public class TakeOrders implements Initializable {
 
     @FXML
     private Button resetbtn, exitbtn;
+
     public void ProductRecords() {
         burger_order.setCellValueFactory(new PropertyValueFactory<>("burger_order"));
         burger_price.setCellValueFactory(new PropertyValueFactory<>("burger_price"));
@@ -321,6 +322,7 @@ public class TakeOrders implements Initializable {
 
         });
     }
+
     public void Exit() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Main-screen.fxml"));
         Stage stage = (Stage) exitbtn.getScene().getWindow();
@@ -536,7 +538,6 @@ public class TakeOrders implements Initializable {
         }
 
     }
-
 
 
 }

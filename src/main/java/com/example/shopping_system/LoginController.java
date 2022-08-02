@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -16,7 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable{
+public class LoginController {
 
     String SceneName = "";
     @FXML
@@ -173,19 +172,18 @@ public class LoginController implements Initializable{
 
     }
 
+public void clear(ActionEvent event){
+
+    username_label.clear();
+    password_label.clear();
+    name_label.clear();
+    surname_label.clear();
+
+}
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        clearbtn.setOnMouseClicked(event -> {
-            username_label.clear();
-            password_label.clear();
-            name_label.clear();
-            surname_label.clear();
-        });
 
 
-    }
 
 
 }

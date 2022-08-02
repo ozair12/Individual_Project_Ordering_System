@@ -6,148 +6,181 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="666.0" prefWidth="1160.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopping_system.TakeOrders">
-    <AnchorPane fx:id="leftAnchor" layoutX="1.0" prefHeight="643.0" prefWidth="249.0" style="-fx-background-color: #FFD190;">
+<Pane prefHeight="666.0" prefWidth="1160.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.shopping_system.TakeOrders">
+    <AnchorPane fx:id="leftAnchor" layoutX="1.0" prefHeight="643.0" prefWidth="249.0"
+                style="-fx-background-color: #FFD190;">
         <children>
-            <TableView fx:id="drinks_table" editable="true" layoutX="14.0" layoutY="180.0" prefHeight="226.0" prefWidth="227.0">
+            <TableView fx:id="drinks_table" editable="true" layoutX="14.0" layoutY="180.0" prefHeight="226.0"
+                       prefWidth="227.0">
                 <columns>
-                    <TableColumn fx:id="drinks_order" prefWidth="111.33332538604736" text="Order" />
-                    <TableColumn fx:id="drinks_price" prefWidth="116.00000762939453" text="Price" />
+                    <TableColumn fx:id="drinks_order" prefWidth="111.33332538604736" text="Order"/>
+                    <TableColumn fx:id="drinks_price" prefWidth="116.00000762939453" text="Price"/>
                 </columns>
             </TableView>
-            <Label layoutX="80.0" layoutY="140.0" opacity="0.48" prefHeight="25.0" prefWidth="59.0" text="Drinks" textFill="RED" underline="true">
+            <Label layoutX="80.0" layoutY="140.0" opacity="0.48" prefHeight="25.0" prefWidth="59.0" text="Drinks"
+                   textFill="RED" underline="true">
                 <font>
-                    <Font name="Arial Nova Bold" size="17.0" />
+                    <Font name="Arial Nova Bold" size="17.0"/>
                 </font>
             </Label>
-         <ImageView fitHeight="186.0" fitWidth="221.0" layoutX="14.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/burger_super.png" />
-            </image>
-         </ImageView>
+            <ImageView fitHeight="186.0" fitWidth="221.0" layoutX="14.0" layoutY="471.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/burger_super.png"/>
+                </image>
+            </ImageView>
         </children>
     </AnchorPane>
-    <AnchorPane layoutX="837.0" layoutY="14.0" prefHeight="567.0" prefWidth="300.0" style="-fx-background-color: #FFD199;">
+    <AnchorPane layoutX="837.0" layoutY="14.0" prefHeight="567.0" prefWidth="300.0"
+                style="-fx-background-color: #FFD199;">
         <children>
-            <Button fx:id="totalbtn" layoutX="109.0" layoutY="379.0" mnemonicParsing="false" onAction="#total" prefHeight="25.0" prefWidth="69.0" text="Total" />
-            <Label layoutX="89.0" layoutY="1.0" opacity="0.47" prefHeight="25.0" prefWidth="92.0" text="CheckOut" textFill="RED" underline="true">
+            <Button fx:id="totalbtn" layoutX="109.0" layoutY="379.0" mnemonicParsing="false" onAction="#total"
+                    prefHeight="25.0" prefWidth="69.0" text="Total"/>
+            <Label layoutX="89.0" layoutY="1.0" opacity="0.47" prefHeight="25.0" prefWidth="92.0" text="CheckOut"
+                   textFill="RED" underline="true">
                 <font>
-                    <Font name="Arial Nova Bold" size="17.0" />
+                    <Font name="Arial Nova Bold" size="17.0"/>
                 </font>
             </Label>
-            <Button fx:id="exitbtn" layoutX="51.0" layoutY="531.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Exit" />
-            <Button fx:id="resetbtn" layoutX="157.0" layoutY="531.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Reset" />
-            <Label layoutX="63.0" layoutY="269.0" prefHeight="18.0" prefWidth="46.0" text="Tax" />
-            <Label layoutX="59.0" layoutY="488.0" prefHeight="25.0" prefWidth="59.0" text="Change" />
-            <Label layoutX="56.0" layoutY="308.0" prefHeight="18.0" prefWidth="59.0" text="Sub Total" />
-            <Label layoutX="63.0" layoutY="345.0" prefHeight="18.0" prefWidth="46.0" text="Total" />
-            <TextField fx:id="changetxt" editable="false" layoutX="146.0" layoutY="494.0" prefHeight="4.0" prefWidth="92.0" />
-            <TextField fx:id="taxtxt" editable="false" layoutX="139.0" layoutY="265.0" prefHeight="4.0" prefWidth="92.0" />
-            <TextField fx:id="subtotaltxt" editable="false" layoutX="139.0" layoutY="304.0" prefHeight="4.0" prefWidth="92.0" />
-            <TextField fx:id="totaltxt" editable="false" layoutX="139.0" layoutY="341.0" prefHeight="4.0" prefWidth="92.0" />
-            <ChoiceBox fx:id="payment_method" layoutX="22.0" layoutY="460.0" prefHeight="25.0" prefWidth="105.0" />
-            <Label layoutX="85.0" layoutY="422.0" prefHeight="25.0" prefWidth="141.0" text="Select Payment Method" />
-            <TextField fx:id="cashtxt" layoutX="145.0" layoutY="460.0" onAction="#change" prefHeight="18.0" prefWidth="111.0" promptText="Enter Cash" />
-            <TableView fx:id="checkout" editable="true" layoutX="38.0" layoutY="26.0" prefHeight="226.0" prefWidth="229.0">
+            <Button fx:id="exitbtn" layoutX="51.0" layoutY="531.0" mnemonicParsing="false" prefHeight="25.0"
+                    prefWidth="69.0" text="Exit"/>
+            <Button fx:id="resetbtn" layoutX="157.0" layoutY="531.0" mnemonicParsing="false" prefHeight="25.0"
+                    prefWidth="69.0" text="Reset"/>
+            <Label layoutX="63.0" layoutY="269.0" prefHeight="18.0" prefWidth="46.0" text="Tax"/>
+            <Label layoutX="59.0" layoutY="488.0" prefHeight="25.0" prefWidth="59.0" text="Change"/>
+            <Label layoutX="56.0" layoutY="308.0" prefHeight="18.0" prefWidth="59.0" text="Sub Total"/>
+            <Label layoutX="63.0" layoutY="345.0" prefHeight="18.0" prefWidth="46.0" text="Total"/>
+            <TextField fx:id="changetxt" editable="false" layoutX="146.0" layoutY="494.0" prefHeight="4.0"
+                       prefWidth="92.0"/>
+            <TextField fx:id="taxtxt" editable="false" layoutX="139.0" layoutY="265.0" prefHeight="4.0"
+                       prefWidth="92.0"/>
+            <TextField fx:id="subtotaltxt" editable="false" layoutX="139.0" layoutY="304.0" prefHeight="4.0"
+                       prefWidth="92.0"/>
+            <TextField fx:id="totaltxt" editable="false" layoutX="139.0" layoutY="341.0" prefHeight="4.0"
+                       prefWidth="92.0"/>
+            <ChoiceBox fx:id="payment_method" layoutX="22.0" layoutY="460.0" prefHeight="25.0" prefWidth="105.0"/>
+            <Label layoutX="85.0" layoutY="422.0" prefHeight="25.0" prefWidth="141.0" text="Select Payment Method"/>
+            <TextField fx:id="cashtxt" layoutX="145.0" layoutY="460.0" onAction="#change" prefHeight="18.0"
+                       prefWidth="111.0" promptText="Enter Cash"/>
+            <TableView fx:id="checkout" editable="true" layoutX="38.0" layoutY="26.0" prefHeight="226.0"
+                       prefWidth="229.0">
                 <columns>
-                    <TableColumn fx:id="checkout_order" prefWidth="154.66667938232422" text="Order" />
-                    <TableColumn fx:id="checkout_price" prefWidth="72.0" text="Price" />
+                    <TableColumn fx:id="checkout_order" prefWidth="154.66667938232422" text="Order"/>
+                    <TableColumn fx:id="checkout_price" prefWidth="72.0" text="Price"/>
                 </columns>
             </TableView>
         </children>
     </AnchorPane>
-    <AnchorPane fx:id="middleAnchor" layoutX="260.0" layoutY="146.0" opacity="0.6" prefHeight="497.0" prefWidth="256.0" style="-fx-background-color: #F09030;">
-      <children>
-            <TableView fx:id="meal_deals" editable="true" layoutX="15.0" layoutY="264.0" prefHeight="226.0" prefWidth="229.0">
+    <AnchorPane fx:id="middleAnchor" layoutX="260.0" layoutY="146.0" opacity="0.6" prefHeight="497.0" prefWidth="256.0"
+                style="-fx-background-color: #F09030;">
+        <children>
+            <TableView fx:id="meal_deals" editable="true" layoutX="15.0" layoutY="264.0" prefHeight="226.0"
+                       prefWidth="229.0">
                 <columns>
-                    <TableColumn fx:id="mealdeals_order" prefWidth="164.33333325386047" text="Order" />
-                    <TableColumn fx:id="mealdeals_price" prefWidth="63.0" text="Price" />
+                    <TableColumn fx:id="mealdeals_order" prefWidth="164.33333325386047" text="Order"/>
+                    <TableColumn fx:id="mealdeals_price" prefWidth="63.0" text="Price"/>
                 </columns>
             </TableView>
-            <Label layoutX="87.0" layoutY="210.0" opacity="0.48" prefHeight="25.0" prefWidth="111.0" text="Meal Deals" textAlignment="CENTER" textFill="RED" underline="true">
+            <Label layoutX="87.0" layoutY="210.0" opacity="0.48" prefHeight="25.0" prefWidth="111.0" text="Meal Deals"
+                   textAlignment="CENTER" textFill="RED" underline="true">
                 <font>
-                    <Font name="Arial Nova Bold" size="18.0" />
+                    <Font name="Arial Nova Bold" size="18.0"/>
                 </font>
             </Label>
-         <ImageView fitHeight="158.0" fitWidth="227.0" layoutX="16.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Shopping_Project_Images/meal_deal.jpg" />
-            </image>
-         </ImageView>
-      </children>
+            <ImageView fitHeight="158.0" fitWidth="227.0" layoutX="16.0" layoutY="37.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../../../Shopping_Project_Images/meal_deal.jpg"/>
+                </image>
+            </ImageView>
+        </children>
     </AnchorPane>
-    <ImageView fx:id="logo" fitHeight="137.0" fitWidth="410.0" layoutX="1.0" layoutY="2.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="logo" fitHeight="137.0" fitWidth="410.0" layoutX="1.0" layoutY="2.0" opacity="0.55"
+               pickOnBounds="true" preserveRatio="true">
         <viewport>
-            <Rectangle2D />
+            <Rectangle2D/>
         </viewport>
         <image>
-            <Image url="@../../../Shopping_Project_Images/logo.png" />
+            <Image url="@../../../Shopping_Project_Images/logo.png"/>
 
 
         </image>
     </ImageView>
 
-    <ImageView fx:id="star" fitHeight="137.0" fitWidth="148.0" layoutX="216.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="star" fitHeight="137.0" fitWidth="148.0" layoutX="216.0" opacity="0.25" pickOnBounds="true"
+               preserveRatio="true">
         <image>
-            <Image url="@../../../Shopping_Project_Images/red-star.png" />
+            <Image url="@../../../Shopping_Project_Images/red-star.png"/>
         </image>
     </ImageView>
-   <ImageView fitHeight="121.0" fitWidth="249.0" layoutX="417.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../../Shopping_Project_Images/soft-drinks-.jpg" />
-      </image></ImageView>
-   <AnchorPane layoutX="530.0" layoutY="146.0" prefHeight="282.0" prefWidth="249.0" style="-fx-background-color: #FFBF00;">
-      <children>
-            <TableView fx:id="pizza_table" editable="true" layoutX="10.0" layoutY="53.0" prefHeight="212.0" prefWidth="229.0">
+    <ImageView fitHeight="121.0" fitWidth="249.0" layoutX="417.0" layoutY="14.0" pickOnBounds="true"
+               preserveRatio="true">
+        <image>
+            <Image url="@../../../Shopping_Project_Images/soft-drinks-.jpg"/>
+        </image>
+    </ImageView>
+    <AnchorPane layoutX="530.0" layoutY="146.0" prefHeight="282.0" prefWidth="249.0"
+                style="-fx-background-color: #FFBF00;">
+        <children>
+            <TableView fx:id="pizza_table" editable="true" layoutX="10.0" layoutY="53.0" prefHeight="212.0"
+                       prefWidth="229.0">
                 <columns>
-                    <TableColumn fx:id="pizza_order" prefWidth="154.66667938232422" text="Order" />
-                    <TableColumn fx:id="pizza_price" prefWidth="72.0" text="Price" />
+                    <TableColumn fx:id="pizza_order" prefWidth="154.66667938232422" text="Order"/>
+                    <TableColumn fx:id="pizza_price" prefWidth="72.0" text="Price"/>
                 </columns>
             </TableView>
-            <Label layoutX="96.0" layoutY="24.0" prefHeight="25.0" prefWidth="46.0" text="Pizza" textAlignment="CENTER" textFill="RED" underline="true">
+            <Label layoutX="96.0" layoutY="24.0" prefHeight="25.0" prefWidth="46.0" text="Pizza" textAlignment="CENTER"
+                   textFill="RED" underline="true">
                 <font>
-                    <Font name="Arial Nova Bold" size="18.0" />
+                    <Font name="Arial Nova Bold" size="18.0"/>
                 </font>
             </Label>
-      </children>
-   </AnchorPane>
-   <AnchorPane layoutX="530.0" layoutY="435.0" prefHeight="206.0" prefWidth="249.0" style="-fx-background-color: #ffaf7a;">
-      <children>
-            <TableView fx:id="burger_table" editable="true" layoutX="14.0" layoutY="32.0" prefHeight="162.0" prefWidth="221.0">
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="530.0" layoutY="435.0" prefHeight="206.0" prefWidth="249.0"
+                style="-fx-background-color: #ffaf7a;">
+        <children>
+            <TableView fx:id="burger_table" editable="true" layoutX="14.0" layoutY="32.0" prefHeight="162.0"
+                       prefWidth="221.0">
                 <columns>
-                    <TableColumn fx:id="burger_order" prefWidth="154.66667938232422" text="Order" />
-                    <TableColumn fx:id="burger_price" prefWidth="72.0" text="Price" />
+                    <TableColumn fx:id="burger_order" prefWidth="154.66667938232422" text="Order"/>
+                    <TableColumn fx:id="burger_price" prefWidth="72.0" text="Price"/>
                 </columns>
             </TableView>
             <Label layoutX="98.0" prefHeight="25.0" prefWidth="69.0" text="Burger" textFill="RED" underline="true">
                 <font>
-                    <Font name="Arial Nova Bold" size="18.0" />
+                    <Font name="Arial Nova Bold" size="18.0"/>
                 </font>
             </Label>
-      </children>
-   </AnchorPane>
+        </children>
+    </AnchorPane>
 
-    <AnchorPane layoutX="805.0" layoutY="588.0" prefHeight="73.0" prefWidth="330.0" style="-fx-background-color: orange;">
+    <AnchorPane layoutX="805.0" layoutY="588.0" prefHeight="73.0" prefWidth="330.0"
+                style="-fx-background-color: orange;">
         <children>
-            <Label layoutX="7.0" layoutY="5.0" text="Telephone No. 020 3456897" />
-            <Label layoutX="7.0" layoutY="29.0" text="Address: 25 StoneBridge Road " />
-            <Label layoutX="7.0" layoutY="53.0" text="PostCode: HA8 9FD" />
-            <Label layoutX="182.0" layoutY="5.0" text="Follow Us On Social Media" />
-            <ImageView fitHeight="28.0" fitWidth="35.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="7.0" layoutY="5.0" text="Telephone No. 020 3456897"/>
+            <Label layoutX="7.0" layoutY="29.0" text="Address: 25 StoneBridge Road "/>
+            <Label layoutX="7.0" layoutY="53.0" text="PostCode: HA8 9FD"/>
+            <Label layoutX="182.0" layoutY="5.0" text="Follow Us On Social Media"/>
+            <ImageView fitHeight="28.0" fitWidth="35.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true"
+                       preserveRatio="true">
                 <image>
-                    <Image url="@../../../Shopping_Project_Images/Twitter-logo.svg.png" />
+                    <Image url="@../../../Shopping_Project_Images/Twitter-logo.svg.png"/>
                 </image>
             </ImageView>
-            <ImageView fitHeight="28.0" fitWidth="57.0" layoutX="232.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="57.0" layoutX="232.0" layoutY="32.0" pickOnBounds="true"
+                       preserveRatio="true">
                 <image>
-                    <Image url="@../../../Shopping_Project_Images/insta.png" />
+                    <Image url="@../../../Shopping_Project_Images/insta.png"/>
                 </image>
             </ImageView>
         </children>
     </AnchorPane>
-   <ImageView fitHeight="133.0" fitWidth="221.0" layoutX="608.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../../Shopping_Project_Images/Pizza_Express_.jpg" />
-      </image>
-   </ImageView>
+    <ImageView fitHeight="133.0" fitWidth="221.0" layoutX="608.0" layoutY="13.0" pickOnBounds="true"
+               preserveRatio="true">
+        <image>
+            <Image url="@../../../Shopping_Project_Images/Pizza_Express_.jpg"/>
+        </image>
+    </ImageView>
 </Pane>

@@ -2,18 +2,15 @@ package com.example.shopping_system;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -126,21 +123,18 @@ public class Checksales implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         ProductRecords();
-returnbtn.setOnMouseClicked(event -> {
+        returnbtn.setOnMouseClicked(event -> {
 
 
-    try {
-        Exit();
-    } catch (Exception e) {
-        throw new RuntimeException(e);
+            try {
+                Exit();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+
     }
-});
-
-
-
-    }
-
-
 
 
     public void Exit() throws Exception {
