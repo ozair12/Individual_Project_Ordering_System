@@ -2,11 +2,19 @@ package com.example.shopping_system;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -53,6 +61,10 @@ public class Checksales implements Initializable {
     private final Connection connection = connectNow.getConnection();
 
     private final ObservableList<Products> Products_List = FXCollections.observableArrayList();
+
+
+    @FXML
+    private Button returnbtn;
 
 
     public void ProductRecords() {
@@ -114,9 +126,28 @@ public class Checksales implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         ProductRecords();
+returnbtn.setOnMouseClicked(event -> {
+
+
+    try {
+        Exit();
+    } catch (Exception e) {
+        throw new RuntimeException(e);
+    }
+});
+
 
 
     }
 
+
+
+
+    public void Exit() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Main-screen.fxml"));
+        Stage stage = (Stage) returnbtn.getScene().getWindow();
+        stage.setScene(new Scene(root, 500, 500));
+        stage.setMaximized(true);
+    }
 
 }

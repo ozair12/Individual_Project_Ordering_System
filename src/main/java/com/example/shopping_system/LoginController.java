@@ -25,7 +25,7 @@ public class LoginController {
 
     @FXML
     private Button UpdateProductsbtn, loginbtn,
-            Orderbtn, CheckSalesbtn, CheckOrdersbtn, cancelbtn;
+            Orderbtn, CheckSalesbtn, LoginScreenbtn;
 
     public void LoginbtnOnAction(ActionEvent actionEvent) {
 
@@ -75,20 +75,21 @@ public class LoginController {
         Parent root = FXMLLoader.load(getClass().getResource(screenName));
         Stage stage = (Stage) loginbtn.getScene().getWindow();
         stage.setScene(new Scene(root, 500, 500));
+        stage.setMaximized(true);
 
     }
 
     public void TakeOrders(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("TakeOrders.fxml"));
         Stage stage = (Stage) Orderbtn.getScene().getWindow();
-        stage.setScene(new Scene(root, 650, 850));
+        stage.setScene(new Scene(root, 1160, 690));
         stage.setMaximized(true);
     }
 
-    public void CheckOrders(ActionEvent event) throws Exception {
+    public void ReturnToLogin(ActionEvent event) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("CheckOrders.fxml"));
-        Stage stage = (Stage) CheckOrdersbtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
+        Stage stage = (Stage) LoginScreenbtn.getScene().getWindow();
         stage.setScene(new Scene(root, 500, 500));
         stage.setMaximized(true);
     }
@@ -96,14 +97,14 @@ public class LoginController {
     public void CheckSales(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("CheckSales.fxml"));
         Stage stage = (Stage) CheckSalesbtn.getScene().getWindow();
-        stage.setScene(new Scene(root, 500, 500));
+        stage.setScene(new Scene(root, 900, 550));
         stage.setMaximized(true);
     }
 
     public void UpdateProducts(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("UpdateProducts.fxml"));
         Stage stage = (Stage) UpdateProductsbtn.getScene().getWindow();
-        stage.setScene(new Scene(root, 500, 500));
+        stage.setScene(new Scene(root, 800, 550));
         stage.setMaximized(true);
     }
 }
