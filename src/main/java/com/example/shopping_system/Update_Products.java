@@ -1,10 +1,14 @@
 package com.example.shopping_system;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -25,10 +29,8 @@ public class Update_Products implements Initializable {
             update_pizza_toppings;
 
     @FXML
-    private Button add_product_btn, delete_product_btn;
+    private Button add_product_btn, delete_product_btn, exitbtn, update_product_btn ;
 
-    @FXML
-    private Button update_product_btn;
 
     @FXML
     private ChoiceBox<String> delete_product_list, product_list, add_product_list;
@@ -99,6 +101,21 @@ public class Update_Products implements Initializable {
 
 
         });
+
+        exitbtn.setOnMouseClicked(event -> {
+            try {
+                Exit();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+    }
+    public void Exit() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Main-screen.fxml"));
+        Stage stage = (Stage) exitbtn.getScene().getWindow();
+        stage.setScene(new Scene(root, 500, 500));
+        stage.setMaximized(true);
     }
 
 
